@@ -52,7 +52,8 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
         }
     }// end of Node<E> class
     
-    private Node<E> header, trailer;
+    private final Node<E> header;
+    private final Node<E> trailer;
     private int size;
     
     public LinkedPositionalList(){

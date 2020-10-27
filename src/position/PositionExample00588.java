@@ -15,15 +15,40 @@ public class PositionExample00588 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        LinkedPositionalList<String> strPos =
+//        LinkedPositionalList<String> strPos =
+//                new LinkedPositionalList<>();
+//        
+//        Position pd = strPos.addFirst("position 1");
+//        System.out.println(strPos.first().getElement());
+//        Position q = strPos.addBefore(pd, "before position 1");
+//        System.out.println(strPos.before(pd).getElement());
+//        Position y = strPos.addAfter(q, "after position 1");
+//        System.out.println(strPos.after(y).getElement());
+//        String tempStr = strPos.remove(pd);
+//        System.out.println(pd.getElement());
+
+        LinkedPositionalList<Product> productsList =
                 new LinkedPositionalList<>();
         
-        Position p1 = strPos.addFirst("position 1");
-        System.out.println(strPos.first().getElement());
-        Position p2 = strPos.addBefore(p1, "before position 1");
-        System.out.println(strPos.before(p1).getElement());
-        Position p3 = strPos.addAfter(p1, "after position 1");
-        System.out.println(strPos.after(p1).getElement());
+        Position mineralWaterPosition = productsList.addFirst(
+                new Product(
+                        "Mineral Water (500ml)",
+                        10.00
+                )
+        );
+        
+        System.out.println(productsList.first().getElement().getDescription());
+        
+        Position cokeSaktoPosition = productsList.addAfter(
+                mineralWaterPosition,
+                new Product(
+                        "Coke Sakto",
+                        20.00
+                )
+        );
+        
+        System.out.println(((Product)productsList.after(mineralWaterPosition)
+                .getElement()).getDescription());
     }
     
 }
